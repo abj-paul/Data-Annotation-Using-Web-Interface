@@ -895,12 +895,29 @@ let image_list_index = 0
 
 let annotations = [];
 
+function initialize(){
+    const last_stopped = "4925b0d3-1d87-40c8-b88d-ca0ad3e3e3aa.png";
+
+    for(let i=0; i<image_list.length; i++){
+	if(image_list[i]==last_stopped){
+	    image_list_index = i+1;
+	    break;
+	}
+    }
+
+    document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
+    console.log("Initialized to "+image_list[image_list_index]);
+}
+
 function isTable(){
     const imgname = image_list[image_list_index];
     annotations.push({ "Table" : imgname });
     image_list_index++;
     document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
     document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+
+
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
 }
 function isParagraph(){
     const imgname = image_list[image_list_index];
@@ -908,6 +925,7 @@ function isParagraph(){
     image_list_index++;
     document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
     document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
 }
 function isImage(){
     const imgname = image_list[image_list_index];
@@ -915,6 +933,7 @@ function isImage(){
     image_list_index++;
     document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
     document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
 }
 function isTextbox(){
     const imgname = image_list[image_list_index];
@@ -922,6 +941,7 @@ function isTextbox(){
     image_list_index++;
     document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
     document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
 }
 
 function save(){
@@ -944,4 +964,27 @@ function save(){
     .catch(error => {
         console.error('Error:', error);
     });  
+}
+
+
+function isTabley(){
+    const imgname = image_list[image_list_index];
+    annotations.push({ "Tabley" : imgname });
+    image_list_index++;
+    document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
+    document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+
+
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
+}
+
+function isDisfigured(){
+    const imgname = image_list[image_list_index];
+    annotations.push({ "Disfigured" : imgname });
+    image_list_index++;
+    document.getElementById("img").src = "tableAnnotates/"+image_list[image_list_index];
+    document.getElementById("img").alt = "tableAnnotates/"+image_list[image_list_index];
+
+
+    document.getElementById("progress").innerText = image_list_index+"/"+image_list.length;
 }

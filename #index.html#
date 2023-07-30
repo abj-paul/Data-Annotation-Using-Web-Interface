@@ -18,7 +18,7 @@
             <button onclick="isTable()">Table</button> 
             <button onclick="isTextbox()">Textbox</button> 
             <button onclick="isImage()">Image</button> 
-            <button onclick="isTabley()">Not a table but border ase</button> 
+            <button onclick="isTabley()">Tabley : Not a table but border ase</button> 
             <button onclick="isDisfigured()">Disfigured, barely a table</button> 
             <button onclick="save()">Save Progress</button>
         </div>
